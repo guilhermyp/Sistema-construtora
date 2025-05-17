@@ -5,4 +5,4 @@ class Fornecedor(BaseModel):
     cnpj: str
     nome: str
     contato: str
-    Material_fornecedor: str
+    tipo_material: str
