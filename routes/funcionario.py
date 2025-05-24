@@ -1,3 +1,8 @@
-from fastapi import APIRouter, HTTPException
-from models import Funcionario
-from typing import List
+from fastapi import APIRouter
+from schemas.funcionario import Funcionario
+
+router = APIRouter(prefix="/funcionario", tags=["Funcionario"])
+
+@router.post("/")
+def criar_funcionario(funcionario: Funcionario):
+    return {"mensagem": "Funcionario criado", "dados": funcionario}

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from banco.conexao import SessionLocal
-from models.cliente import Cliente
+from core.banco import SessionLocal
+from models.Cliente import Cliente
 from schemas.cliente import ClienteCreate, ClienteResponse
 
 from pydantic import BaseModel

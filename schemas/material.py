@@ -8,10 +8,10 @@ class MaterialBase(BaseModel):
     fornecedor: str
     projeto: str
 
-class MaterialCreate(MaterialBase):
+class MaterialCreate(MaterialBase): # CREATE: entrada de dados para criação
     pass
 
-class MaterialResponse(MaterialBase):
+class MaterialResponse(MaterialBase): # RESPONSE: retornar dados ao cliente
     id: int
 
     class Config:
