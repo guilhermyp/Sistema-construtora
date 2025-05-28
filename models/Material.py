@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float
 from core.banco import Base
-
+from sqlalchemy.orm import relationship
+from pydantic import BaseModel
 class Material(Base):
     __tablename__ = "materiais"
     id = Column(Integer, primary_key=True, index=True)

@@ -2,22 +2,21 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from core.banco import SessionLocal
 from models.Cliente import Cliente
-from schemas.cliente import ClienteCreate, ClienteResponse
 
 from pydantic import BaseModel
 
-class ClienteBase(BaseModel):
+class ClienteModel(BaseModel):
     nome: str
     cnpj: str
     cpf:  str
     projeto: str
     contato: str
 
-class ClienteCreate(ClienteBase):
+class ClienteCreate(ClienteModel):
     pass
 
-class ClienteResponse(ClienteBase):
+class ClienteResponse(ClienteModel):
     id: int
 
     class Config:
-        orm_mode = True
+       from_attributes = True

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class MaterialBase(BaseModel):
     nome: str
@@ -13,6 +14,19 @@ class MaterialCreate(MaterialBase): # CREATE: entrada de dados para criação
 
 class MaterialResponse(MaterialBase): # RESPONSE: retornar dados ao cliente
     id: int
+    class Config:
+        from_attributes = True
+
+class MaterialUpdate(BaseModel):
+    nome: Optional[str]
+    unidade_medida: Optional[str]
+    preco: Optional[float]
+    quantidade: Optional[float]
+    fornecedor: Optional[str]
+    projeto: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+
+        

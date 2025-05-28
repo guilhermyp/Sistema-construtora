@@ -1,0 +1,63 @@
+### Cadastrar Material
+POST http://localhost:8000/materiais/materiais
+Content-Type: application/json
+
+{
+  "nome": "Cimento",
+  "unidade_medida": "KG",
+  "preco": 28.50,
+  "quantidade": 100,
+  "fornecedor": "Votorantin",
+  "projeto": "Prédio Boa Vista"
+}
+
+### Cadastrar Fornecedor
+POST http://localhost:8000/fornecedores/fornecedores
+Content-Type: application/json
+
+{
+  "cnpj": "12.345.678/0001-99",
+  "nome": "Fornecedor A",
+  "contato": "contato@fornecedor.com",
+  "tipo_material": "Cimento"
+}
+
+### Cadastrar Cliente
+POST http://localhost:8000/clientes/clientes
+Content-Type: application/json
+
+{
+  "cpf": "123.454.789-00",
+  "cnpj": "12.343.678/0001-99",
+  "nome": "Joda Silva",
+  "projeto": "Prédio oa Vista",
+  "contato": "4188555555"
+}
+
+### Cadastrar Projeto
+POST http://localhost:8000/projetos/projetos
+Content-Type: application/json
+
+{
+  "nome": "Casa Nova",
+  "descricao": "Construção de casa nova",
+  "data_inicio": "2025-06-01",
+  "data_fim": "2025-12-01",
+  "status": "Em andamento",
+  "custo_total": 150000,
+  "custo_atual": 30000,
+  "progresso": 20,
+  "responsavel_projeto": "Engenheiro João"
+}
+
+### Cadastrar Funcionário
+POST http://localhost:8000/funcionario/funcionario
+Content-Type: application/json
+
+{
+  "nome": "Maria Souza",
+  "cpf": "123.456.789-00",
+  "cargo": "Pedreira",
+  "salario": 2800.00
+}
+

@@ -2,19 +2,19 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class FuncionarioBase(BaseModel):
+class FuncionarioModel(BaseModel):
     nome: str
     cpf: str
     cargo: str
     salario: float
 
 
-class FuncionarioCreate(FuncionarioBase):
+class FuncionarioCreate(FuncionarioModel):
     pass
 
 
-class FuncionarioResponse(FuncionarioBase):
+class FuncionarioResponse(FuncionarioModel):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

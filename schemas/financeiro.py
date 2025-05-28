@@ -16,4 +16,4 @@ class Financeiro(BaseModel):
     cliente: Optional[str] = None  
 
     class Config:
-        orm_mode = True  # SQLAlchemy
+        from_attributes = True  # SQLAlchemy

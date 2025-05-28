@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class ProjetoBase(BaseModel):
+class ProjetoModel(BaseModel):
     nome: str
     descricao: str
     data_inicio: str
@@ -14,12 +14,12 @@ class ProjetoBase(BaseModel):
     responsavel_projeto: Optional[str] = None
 
 
-class ProjetoCreate(ProjetoBase):
+class ProjetoCreate(ProjetoModel):
     pass
 
 
-class ProjetoResponse(ProjetoBase):
+class ProjetoResponse(ProjetoModel):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

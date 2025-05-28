@@ -1,19 +1,19 @@
 from pydantic import BaseModel
 
 
-class FornecedorBase(BaseModel):
+class FornecedorModel(BaseModel):
     cnpj: str
     nome: str
     contato: str
     tipo_material: str
 
 
-class FornecedorCreate(FornecedorBase):
+class FornecedorCreate(FornecedorModel):
     pass
 
 
-class FornecedorResponse(FornecedorBase):
+class FornecedorResponse(FornecedorModel):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
