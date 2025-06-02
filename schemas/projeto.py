@@ -1,5 +1,7 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
+from schemas.material import MaterialResponse
+
 
 
 class ProjetoModel(BaseModel):
@@ -11,11 +13,7 @@ class ProjetoModel(BaseModel):
     custo_total: float
     custo_atual: float
     progresso: float
-    responsavel_projeto: Optional[str] = None
-
-
-class ProjetoCreate(ProjetoModel):
-    pass
+    funcionarios_ids: Optional[List[int]] = []
 
 
 class ProjetoResponse(ProjetoModel):
@@ -23,3 +21,19 @@ class ProjetoResponse(ProjetoModel):
 
     class Config:
         from_attributes = True
+
+class ProjetoComMateriaisResponse(ProjetoResponse):
+    materiais: List[MaterialResponse]
+
+class ProjetoCreate(ProjetoModel):
+    pass
+
+class ProjetoUpdate(BaseModel):
+    nome: Optional[str] = None
+    descricao: Optional[str] = None
+    data_inicio: Optional[str] = None
+    data_fim: Optional[str] = None
+    status: Optional[str] = None
+    custo_total: Optional[float] = None
+    progresso: Optional[float] = None
+    funcionarios_ids: Optional[List[int]] = []

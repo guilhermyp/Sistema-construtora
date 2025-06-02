@@ -7,7 +7,11 @@ class MaterialBase(BaseModel):
     preco: float
     quantidade: float
     fornecedor: str
-    projeto: str
+    projeto_id: Optional[int] = None
+
+class VincularMaterialProjeto(BaseModel):
+    material_id: int
+    projeto_id: Optional[int] = None
 
 class MaterialCreate(MaterialBase): # CREATE: entrada de dados para criação
     pass
@@ -23,7 +27,7 @@ class MaterialUpdate(BaseModel):
     preco: Optional[float]
     quantidade: Optional[float]
     fornecedor: Optional[str]
-    projeto: Optional[str]
+    projeto_id: Optional[int] = None
 
     class Config:
         from_attributes = True

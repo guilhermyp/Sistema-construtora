@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy.orm import relationship
 from core.banco import Base
 
 
@@ -11,4 +12,6 @@ class Funcionario(Base):
     cargo = Column(String(50), nullable=False)
     salario = Column(Float, nullable=False)
 
-    
+    projeto_id = Column(Integer, ForeignKey("projetos.id"), nullable=True)
+
+    projeto = relationship("Projeto", back_populates="funcionarios")    

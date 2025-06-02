@@ -1,19 +1,30 @@
 from pydantic import BaseModel
+from datetime import date
 from typing import Optional
 
-class Financeiro(BaseModel):
-    id: int
-    projeto_id: int
+class FinanceiroBase(BaseModel):
     tipo: str
-    valor: float
-    datetime: str
     descricao: Optional[str] = None
-    status: str
-    forma_pagamento: Optional[str] = None
-    categoria: Optional[str] = None
-    responsavel: Optional[str] = None
-    projeto: Optional[str] = None  # associação
-    cliente: Optional[str] = None  
+    valor: float
+    data: date
+    funcionario_id: Optional[int] = None
+    projeto_id: Optional[int] = None
+    material_id: Optional[int] = None
+
+class FinanceiroCreate(FinanceiroBase):
+    pass
+
+class FinanceiroUpdate(BaseModel):
+    tipo: Optional[str] = None
+    descricao: Optional[str] = None
+    valor: Optional[float] = None
+    data: Optional[date] = None
+    funcionario_id: Optional[int] = None
+    projeto_id: Optional[int] = None
+    material_id: Optional[int] = None
+
+class FinanceiroResponse(FinanceiroBase):
+    id: int
 
     class Config:
-        from_attributes = True  # SQLAlchemy
+        orm_mode = True

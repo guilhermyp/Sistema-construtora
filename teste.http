@@ -1,63 +1,228 @@
+################################### MATERIAL #####################################
+
 ### Cadastrar Material
 POST http://localhost:8000/materiais/materiais
 Content-Type: application/json
 
 {
+  "nome": "Pedra",
+  "unidade_medida": "M³",
+  "preco": 17.50,
+  "quantidade": 20,
+  "fornecedor": "Votorantin",
+  "projeto_id": 1
+}
+
+### Listar Materiais
+GET http://localhost:8000/materiais/materiais
+
+### Buscar Material por ID
+GET http://localhost:8000/materiais/materiais/8
+
+### Atualizar Material por ID
+PUT http://localhost:8000/materiais/materiais/8
+Content-Type: application/json
+
+{
   "nome": "Cimento",
-  "unidade_medida": "KG",
-  "preco": 28.50,
+  "unidade_medida": "Saco",
+  "preco": 25.00,
   "quantidade": 100,
   "fornecedor": "Votorantin",
-  "projeto": "Prédio Boa Vista"
+  "projeto_id": 2
 }
+
+### Deletar Material por ID
+DELETE http://localhost:8000/materiais/materiais/8
+
+
+
+############################## FORNECEDOR #####################################
 
 ### Cadastrar Fornecedor
 POST http://localhost:8000/fornecedores/fornecedores
 Content-Type: application/json
 
 {
-  "cnpj": "12.345.678/0001-99",
-  "nome": "Fornecedor A",
-  "contato": "contato@fornecedor.com",
-  "tipo_material": "Cimento"
+  "cnpj": "10.345.678/0001-98",
+  "nome": "Fornecedor de Pedra",
+  "contato": "Pedra@fornecedor.com",
+  "tipo_material": "Pedra"
 }
+
+### Listar Todos os Fornecedores
+GET http://localhost:8000/fornecedores/fornecedores
+
+### Buscar Fornecedor por ID
+GET http://localhost:8000/fornecedores/fornecedores/6
+
+### Atualizar Fornecedor por ID
+PUT http://localhost:8000/fornecedores/fornecedores/6
+Content-Type: application/json
+
+{
+  "cnpj": "10.345.678/0002-98",
+  "nome": "Fornecedor de Cimento",
+  "contato": "cimento@fornecedor.com",
+  "tipo_material": "Cimento Pronto"
+}
+
+### Deletar Fornecedor por ID
+DELETE http://localhost:8000/fornecedores/fornecedores/6
+
+############################## CLIENTE #####################################
 
 ### Cadastrar Cliente
 POST http://localhost:8000/clientes/clientes
 Content-Type: application/json
 
 {
+  "cpf": "398.234.744-00",
+  "cnpj": "32.433.553/0001-99",
+  "nome": "Joares",
+  "contato": "41885425545",
+  "projeto_id": null
+} 
+
+### Listar Todos os Clientes
+GET http://localhost:8000/clientes/clientes
+
+### Buscar Cliente por ID
+GET http://localhost:8000/clientes/clientes/1
+
+### Atualizar Cliente por ID
+PUT http://localhost:8000/clientes/clientes/1
+Content-Type: application/json
+
+{
   "cpf": "123.454.789-00",
   "cnpj": "12.343.678/0001-99",
-  "nome": "Joda Silva",
-  "projeto": "Prédio oa Vista",
-  "contato": "4188555555"
+  "nome": "Ancelotti",
+  "contato": "41985555545",
+  "projeto_id": 2 
 }
+
+### Deletar Cliente por ID
+DELETE http://localhost:8000/clientes/clientes/6
+
+
+############################## PROJETO #####################################
+
 
 ### Cadastrar Projeto
 POST http://localhost:8000/projetos/projetos
 Content-Type: application/json
 
 {
-  "nome": "Casa Nova",
-  "descricao": "Construção de casa nova",
-  "data_inicio": "2025-06-01",
-  "data_fim": "2025-12-01",
+  "nome": "Mansão",
+  "descricao": "Mansão no Ecoville para cliente Ancelotti",
+  "data_inicio": "2025-04-01",
+  "data_fim": "2025-11-01",
   "status": "Em andamento",
-  "custo_total": 150000,
-  "custo_atual": 30000,
-  "progresso": 20,
-  "responsavel_projeto": "Engenheiro João"
+  "custo_total": 3000000,
+  "custo_atual": 2000000,
+  "progresso": 78,
+  "funcionario_id": null
 }
+
+### Listar Projetos
+GET http://localhost:8000/projetos/projetos
+
+### Buscar Projeto por ID
+GET http://localhost:8000/projetos/projetos/2
+
+### Atualizar Projeto por ID
+PUT http://localhost:8000/projetos/projetos/5
+Content-Type: application/json
+
+{
+  "nome": "Reforma Estádio",
+  "descricao": "Reforma estádio Couto Pereira para o Coritiba",
+  "data_inicio": "2026-01-01",
+  "data_fim": "2027-12-01",
+  "status": "Planejamento",
+  "custo_total": 100000000,
+  "custo_atual": 100000,
+  "progresso": 3,
+  "funcionario_id": 1
+}
+
+### Deletar Projeto por ID
+DELETE http://localhost:8000/projetos/projetos/3
+
+############################## FUNCIONÁRIO #####################################
 
 ### Cadastrar Funcionário
 POST http://localhost:8000/funcionario/funcionario
 Content-Type: application/json
 
 {
-  "nome": "Maria Souza",
-  "cpf": "123.456.789-00",
-  "cargo": "Pedreira",
-  "salario": 2800.00
+  "nome": "Alberto Silva",
+  "cpf": "123.456.999-00",
+  "cargo": "Arquiteto",
+  "salario": 2800.00,
+  "projeto_id": 4
 }
 
+### Listar Funcionários
+GET http://localhost:8000/funcionario/funcionario
+
+### Buscar Funcionário por ID
+GET http://localhost:8000/funcionario/funcionario/4
+
+### Atualizar Funcionário por ID
+PUT http://localhost:8000/funcionario/funcionario/6
+Content-Type: application/json
+
+{
+  "nome": "Naruto Uzumaki",
+  "cpf": "123.456.999-00",
+  "cargo": "Pedreiro",
+  "salario": 3000.00,
+  "projeto_id": null
+  
+}
+###Arrumar o log para o id quando nãoe existir
+
+### Deletar Funcionário por ID
+DELETE http://localhost:8000/funcionario/funcionario/2
+
+
+############################## FINANCEIRO #####################################
+
+
+### Criar Lançamento Financeiro
+POST http://localhost:8000/financeiro/financeiro
+Content-Type: application/json
+
+{
+  "tipo": "areia",
+  "descricao": "Pagamento de fornecedor",
+  "valor": 3000.00,
+  "data": "2025-05-28",
+  "funcionario_id": null,
+  "projeto_id": null,
+  "material_id": null
+  }
+
+### Listar Lançamentos Financeiros
+GET http://localhost:8000/financeiro/financeiro
+
+### Buscar Lançamento por ID
+GET http://localhost:8000/financeiro/financeiro/3
+
+### Atualizar Lançamento por ID
+PUT http://localhost:8000/financeiro/financeiro/4
+Content-Type: application/json
+
+{
+  "descricao": "Pagamento reajustado",
+  "valor": 3200.00
+}
+
+### Deletar Lançamento por ID
+DELETE http://localhost:8000/financeiro/financeiro/3
+
+
+### Custo Total por projeto
+GET  http://localhost:8000/financeiro/financeiro/resumo/2

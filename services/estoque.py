@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from models.Material import Material
+from models.material import Material
 from schemas.material import MaterialCreate, MaterialUpdate
 
 
@@ -15,7 +15,7 @@ def listar_materiais(db: Session):
     return db.query(Material).all()
 
 
-def obter_material(db: Session, material_id: int):
+def buscar_material(db: Session, material_id: int):
     return db.query(Material).filter(Material.id == material_id).first()
 
 
